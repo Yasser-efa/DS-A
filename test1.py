@@ -1,99 +1,109 @@
 from jovian.pythondsa import evaluate_test_case as ev
+from jovian.pythondsa import evaluate_test_cases as evs
 # [32, 21, 16, 15, 12, 8, 7, 4, 2]
+def test_location(cards, query, mid):
+    if cards[mid] == query:
+        if mid-1 >= 0 and cards[mid-1] == query:
+            return 'left'
+        else:
+            return 'found'
+    elif cards[mid] < query:
+        return 'left'
+    else:
+        return 'right'
 
 def locate_card(cards, query):
-  left = 0
-  right = len(cards) - 1
-  if cards == []:
+    lo, hi = 0, len(cards) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        result = test_location(cards, query, mid)
+        if result == 'found':
+            return mid
+        elif result == 'left':
+            hi = mid - 1
+        elif result == 'right':
+            lo = mid + 1
     return -1
-  while left <= right:
-    mid = (left + right) // 2
-    if cards[mid] == query:
-      return mid
-    elif query < cards[mid]:
-     left = mid + 1
-    else:
-      right = mid - 1
-  return -1
 
+tests = []
 # query occurs in the middle
-test = {
+tests.append({
     'input': { 
         'cards': [13, 11, 10, 7, 4, 3, 1, 0], 
         'query': 7
     },
     'output': 3
-}
+})
 
-test1={
+tests.append({
     'input': {
         'cards': [13, 11, 10, 7, 4, 3, 1, 0],
         'query': 1
     },
     'output': 6
-}
+})
 
 # query is the first element
-test2={
+tests.append({
     'input': {
         'cards': [4, 2, 1, -1],
         'query': 4
     },
     'output': 0
-}
+})
 
 # query is the last element
-test3={
+tests.append({
     'input': {
         'cards': [3, -1, -9, -127],
         'query': -127
     },
     'output': 3
-}
+})
 
 # cards contains just one element, query
-test4={
+tests.append({
     'input': {
         'cards': [6],
         'query': 6
     },
     'output': 0 
-}
+})
 
 # cards does not contain query 
-test5={
+tests.append({
     'input': {
         'cards': [9, 7, 5, 2, -9],
         'query': 4
     },
     'output': -1
-}
+})
 
 # cards is empty
-test6={
+tests.append({
     'input': {
         'cards': [],
         'query': 7
     },
     'output': -1
-}
+})
 
 # numbers can repeat in cards
-test7={
+tests.append({
     'input': {
         'cards': [8, 8, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
         'query': 3
     },
     'output': 7
-}
+})
 
 # query occurs multiple times
-test8={
+tests.append({
     'input': {
         'cards': [8, 8, 6, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
         'query': 6
     },
     'output': 2
-}
+})
 
-ev(locate_card, test8)
+evs(locate_card, tests)
