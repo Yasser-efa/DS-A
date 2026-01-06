@@ -1,3 +1,4 @@
+from collections import deque
 expenses = {
   "January": 2200,
   "February": 2350,
@@ -54,3 +55,8 @@ def oddNum(max):
   print("Odd numbers: ", odd_numbers) 
 
 print(oddNum(100))
+
+
+m = "march 6"
+march = [ord(i) for i in m]
+print(sum(march)%100)
