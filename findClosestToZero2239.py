@@ -1,14 +1,9 @@
 class Solution:
     def findClosestNumber(self, nums: list[int]) -> int:
-        closest = nums[0]
-        for x in nums:
-            if abs(x) < abs(closest):
-                closest = x
-                print(closest)
-
-        if closest < 0 and closest in nums:
-            return abs(closest)
-        return closest
+        absolute = [abs(x) for x in nums]
+        if min(absolute) in nums:
+            return min(absolute)
+        return -min(absolute)
 
     # Time: O(2n) -> O(n)
     # Space: O(1)
