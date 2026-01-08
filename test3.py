@@ -1,3 +1,5 @@
+n = [1,7,3,6,5,6]
+print(sum(n[3+1:]))
 
 
 
@@ -5,6 +7,57 @@
 
 
 
+
+
+
+
+
+
+# nums = [1,2,3,4]
+# length = len(nums)
+
+# runsum = [nums[0]].extend([0]*(length-1))
+# print([0].extend([1]*3))
+# print(f"{[nums[0]]}.extend([0]*({length}-1))")
+# print(runsum)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Solution:
+#     def containsNearbyDuplicate(self, nums: list[int], k: int) -> bool:
+#         h = {}
+#         # i = 0
+#         #for i in range(len(nums))
+#         for i, n in enumerate(nums):
+#             print(h)
+#             if n in h:
+#               if abs(i-h[n]) <= k:
+#                     print(f"True car {n} est dans la hashtable et abs({i}-{h[n]}) <= k, hashtable: {h}\ni: {i}, h[n]: {h[n]}, n: {n} ")
+#                     return True
+#               else:
+#                   h[n] = i
+#             else:
+#               h[n] = i
+#             # i+=1
+#         return False
+  
+# sol = Solution()
+# sol.containsNearbyDuplicate([1,4,2,3,1,2], 3)
 
 
 
