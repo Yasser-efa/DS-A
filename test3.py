@@ -1,5 +1,46 @@
-n = [1,7,3,6,5,6]
-print(sum(n[3+1:]))
+class Solution:
+    def findDuplicates(self, nums: list[int]) -> list[int]:
+        if len(nums) == 1:
+            return []
+        res = []
+        for n in nums:
+            i = abs(n)-1
+            print(f"i:{i}\nn:{n}\nnums[i]:{nums[i]}")
+            if nums[i] < 0:
+                res.append(n)
+                print(f"res:{res}\n\n")
+            else:
+                print(f"-{nums[i]}\n\n")
+                nums[i] = -1 * abs(nums[i])
+        return res
+
+
+sol = Solution
+
+print(sol.findDuplicates([10,1], [10,2,5,10,9,1,1,4,3,7]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# n = [1,7,3,6,5,6]
+# print(sum(n[3+1:]))
 
 
 
