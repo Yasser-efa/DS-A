@@ -1,23 +1,73 @@
 class Solution:
-    def findDuplicates(self, nums: list[int]) -> list[int]:
-        if len(nums) == 1:
-            return []
-        res = []
-        for n in nums:
-            i = abs(n)-1
-            print(f"i:{i}\nn:{n}\nnums[i]:{nums[i]}")
-            if nums[i] < 0:
-                res.append(n)
-                print(f"res:{res}\n\n")
-            else:
-                print(f"-{nums[i]}\n\n")
-                nums[i] = -1 * abs(nums[i])
-        return res
+    def maxProfit(self, prices: list[int]) -> int:
+        l, r = 0, 1
+        buy_day = 0
+        while l < len(prices):
+            buy_day = prices[l]
+            if prices[r] < prices[l]:
+                buy_day = prices[r]
+                l=r
+                if r == len(prices)-1:
+                    print(r, l)
+                    r = l
+                    print(r, l)
+                else:
+                    r+=1
+        return buy_day
+sol = Solution()
+print(sol.maxProfit([7,1,5,3,6,4]))
 
 
-sol = Solution
 
-print(sol.findDuplicates([10,1], [10,2,5,10,9,1,1,4,3,7]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Solution:
+#     def findDuplicates(self, nums: list[int]) -> list[int]:
+#         if len(nums) == 1:
+#             return []
+#         res = []
+#         for n in nums:
+#             i = abs(n)-1
+#             print(f"i:{i}\nn:{n}\nnums[i]:{nums[i]}")
+#             if nums[i] < 0:
+#                 res.append(n)
+#                 print(f"res:{res}\n\n")
+#             else:
+#                 print(f"-{nums[i]}\n\n")
+#                 nums[i] = -1 * abs(nums[i])
+#         return res
+
+
+
+# print(sol.findDuplicates([10,1], [10,2,5,10,9,1,1,4,3,7]))
 
 
 
