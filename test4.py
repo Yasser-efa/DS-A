@@ -1,11 +1,27 @@
-class Solution:
-    def findMaxAverage(self, nums: list[int], k: int) -> float:
-        if len(nums) == k:
-            return sum(nums) / k
+s="Was it a car or a cat I saw?"
+ss=""
+for i in range(len(s)-1, 0, -1):
+    if s[i].isalnum():
+        ss += s[i]
+print(ss, ss[::-1])
+ss[::-1] == ss
+
+
+
+
+
+
+
+
+
+# class Solution:
+#     def findMaxAverage(self, nums: list[int], k: int) -> float:
+#         if len(nums) == k:
+#             return sum(nums) / k
         
 
-sol = Solution()
-print(sol.findMaxAverage([1,12,-5,-6,50,3,4,2,-2,5,-6,-200,5,100000], 4))
+# sol = Solution()
+# print(sol.findMaxAverage([1,12,-5,-6,50,3,4,2,-2,5,-6,-200,5,100000], 4))
 
 
 # class Solution:
